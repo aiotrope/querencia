@@ -1,0 +1,3 @@
+# querencia
+
+Twelfth weekly exercise.
