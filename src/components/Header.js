@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
+import i18n from 'i18next'
+import { useTranslation } from 'react-i18next'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -19,10 +21,27 @@ const drawerWidth = 240
 
 const Header = (props) => {
   const { window } = props
+
+  const [counter, setCounter] = React.useState(0)
+
   const [mobileOpen, setMobileOpen] = React.useState(false)
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState)
+  }
+
+  const { t } = useTranslation()
+
+  const handleTranslation = (event) => {
+    if (event) event.preventDefault()
+
+    const id = event.target.id
+
+    i18n.changeLanguage(id)
+
+    setCounter((c) => c + 1)
+
+    console.log(counter)
   }
 
   const drawer = (
@@ -34,19 +53,19 @@ const Header = (props) => {
       <List>
         <ListItem disablePadding component={Link} to='/'>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <ListItemText disableTypography>Home</ListItemText>
+            <ListItemText disableTypography>{t('home')}</ListItemText>
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding component={Link} to='/about'>
+        <ListItem disablePadding component={Link} to={'/about'}>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <ListItemText disableTypography>About</ListItemText>
+            <ListItemText disableTypography>{t('about')}</ListItemText>
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding component={Link} to='/contact'>
+        {/*  <ListItem disablePadding component={Link} to={'/contact'}>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <ListItemText disableTypography>Contact</ListItemText>
+            <ListItemText disableTypography>{t('contact')}</ListItemText>
           </ListItemButton>
-        </ListItem>
+        </ListItem> */}
       </List>
     </Box>
   )
@@ -87,18 +106,22 @@ const Header = (props) => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button sx={{ color: '#fff' }} component={Link} to='/'>
-              Home
+              {t('home')}
             </Button>
-            <Button sx={{ color: '#fff' }} component={Link} to='/about'>
-              About
+            <Button sx={{ color: '#fff' }} component={Link} to={'/about'}>
+              {t('about')}
             </Button>
-            <Button sx={{ color: '#fff' }} component={Link} to='/contact'>
-              Contact
-            </Button>
+            {/*  <Button sx={{ color: '#fff' }} component={Link} to={'/contact'}>
+              {t('contact')}
+            </Button> */}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Button color='inherit'>FI</Button>
-            <Button color='inherit'>EN</Button>
+            <Button color='inherit' id='fi' onClick={handleTranslation}>
+              FI
+            </Button>
+            <Button color='inherit' id='en' onClick={handleTranslation}>
+              EN
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
