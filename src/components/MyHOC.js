@@ -1,13 +1,9 @@
-const Component = (props) => {
-  return <div>Hello {props.name}!</div>
-}
-
-const MyHOC = (Component) => {
+const MyHOC = (Component, props) => {
   return (
     <div className='wrapper'>
-      <Component />
+      <Component {...props} />
     </div>
   )
 }
 
-export const wrappedWithName = MyHOC(Component, { name: 'Kalle' })
+export default MyHOC
