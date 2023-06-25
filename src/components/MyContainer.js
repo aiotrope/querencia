@@ -10,13 +10,13 @@ const Component = (props) => {
 }
 
 const MyContainer = (props) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('common')
   const wrappedWithName = MyHOC(Component, { name: 'Kalle' })
   return (
     <Box component='main' sx={{ p: 3 }}>
       <Toolbar />
-      <Typography>{t('frontpage')}.</Typography>
-      <Typography>{t('home')}</Typography>
+      <Typography>{t('frontpage.name')}.</Typography>
+      <Typography>{t('home.name')}</Typography>
       {wrappedWithName}
     </Box>
   )

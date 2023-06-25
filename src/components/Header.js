@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import i18n from 'i18next'
 import { useTranslation } from 'react-i18next'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -40,7 +39,7 @@ const Header = (props) => {
     localStorage.setItem('lng', JSON.stringify(lng))
   }, [lng])
 
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation('common')
 
   const handleTranslation = (event) => {
     if (event) event.preventDefault()
@@ -61,15 +60,15 @@ const Header = (props) => {
       <List>
         <ListItem disablePadding component={Link} to='/'>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <ListItemText disableTypography>{t('home')}</ListItemText>
+            <ListItemText disableTypography>{t('home.name')}</ListItemText>
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding component={Link} to={'/about'}>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <ListItemText disableTypography>{t('about')}</ListItemText>
+            <ListItemText disableTypography>{t('about.name')}</ListItemText>
           </ListItemButton>
         </ListItem>
-        {/* <ListItem disablePadding component={Link} to={'/contact'}>
+        {/*  <ListItem disablePadding component={Link} to={'/contact'}>
           <ListItemButton sx={{ textAlign: 'center' }}>
             <ListItemText disableTypography>{t('contact')}</ListItemText>
           </ListItemButton>
@@ -114,13 +113,13 @@ const Header = (props) => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button sx={{ color: '#fff' }} component={Link} to='/'>
-              {t('home')}
+              {t('home.name')}
             </Button>
             <Button sx={{ color: '#fff' }} component={Link} to={'/about'}>
-              {t('about')}
+              {t('about.name')}
             </Button>
             {/*  <Button sx={{ color: '#fff' }} component={Link} to={'/contact'}>
-              {t('contact')}
+              {t('contact.name')}
             </Button> */}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
