@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <AppBar>
       <Toolbar>
-        <Box sx={{ flexGrow: 1, display: { sx: 'flex' } }} component='header'>
+        <Box sx={{ flexGrow: 1, display: { sx: 'flex' } }}>
           <Button sx={{ color: '#fff' }} component={Link} to='/'>
             {t('home.name')}
           </Button>
