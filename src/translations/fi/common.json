@@ -1,17 +1,17 @@
 {
     "home": {
-        "name": "etusivu"
+        "name": "Etusivu"
     },
     "about": {
-        "name": "tietoa meistä"
+        "name": "Tietoa Meistä"
     },
     "contact": {
-        "name": "yhteys"
+        "name": "Yhteys"
     },
     "frontpage": {
         "name": "Tämä on etusivu"
     },
     "contactPage": {
-        "name": "yhteydenottosivu"
+        "name": "Yhteydenottosivu"
     }
 }

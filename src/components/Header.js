@@ -53,9 +53,7 @@ const Header = (props) => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }} component='header'>
-      <Typography variant='h6' sx={{ my: 2 }}>
-        Querencia
-      </Typography>
+      <Typography variant='h6' sx={{ my: 2 }}></Typography>
       <Divider />
       <List>
         <ListItem disablePadding component={Link} to='/'>
@@ -108,10 +106,9 @@ const Header = (props) => {
               color: 'inherit',
               textDecoration: 'none',
             }}
-          >
-            Querencia
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          ></Typography>
+          {/* Logo text */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} component='header'>
             <Button sx={{ color: '#fff' }} component={Link} to='/'>
               {t('home.name')}
             </Button>
