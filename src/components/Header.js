@@ -17,18 +17,28 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 
+//import i18n from '../utils/i18n'
+
 const drawerWidth = 240
 
 const Header = (props) => {
   const { window } = props
 
-  const [counter, setCounter] = React.useState(0)
+  const [lng, setLng] = React.useState(() => {
+    const savedItem = localStorage.getItem('lng')
+    const parsedItem = JSON.parse(savedItem)
+    return parsedItem || ''
+  })
 
   const [mobileOpen, setMobileOpen] = React.useState(false)
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState)
   }
+
+  React.useEffect(() => {
+    localStorage.setItem('lng', JSON.stringify(lng))
+  }, [lng])
 
   const { t } = useTranslation()
 
@@ -37,11 +47,9 @@ const Header = (props) => {
 
     const id = event.target.id
 
+    setLng(id)
+
     i18n.changeLanguage(id)
-
-    setCounter((c) => c + 1)
-
-    console.log(counter)
   }
 
   const drawer = (
@@ -61,7 +69,7 @@ const Header = (props) => {
             <ListItemText disableTypography>{t('about')}</ListItemText>
           </ListItemButton>
         </ListItem>
-        {/*  <ListItem disablePadding component={Link} to={'/contact'}>
+        {/* <ListItem disablePadding component={Link} to={'/contact'}>
           <ListItemButton sx={{ textAlign: 'center' }}>
             <ListItemText disableTypography>{t('contact')}</ListItemText>
           </ListItemButton>
