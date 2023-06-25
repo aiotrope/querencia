@@ -22,7 +22,7 @@ const Header = () => {
           <Button sx={{ color: '#fff' }} component={Link} to='/'>
             {t('home.name')}
           </Button>
-          <Button sx={{ color: '#fff' }} component={Link} to={'/' + t('about.name')}>
+          <Button sx={{ color: '#fff' }} component={Link} to={'/about'}>
             {t('about.name')}
           </Button>
           {/*  <Button sx={{ color: '#fff' }} component={Link} to={'/contact'}>
