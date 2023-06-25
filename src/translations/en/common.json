@@ -1,12 +1,12 @@
 {
     "home": {
-        "name": "Home"
+        "name": "home"
     },
     "about": {
-        "name": "About"
+        "name": "about"
     },
     "contact": {
-        "name": "Contact"
+        "name": "contact"
     },
     "frontpage": {
         "name": "This is the front page"
